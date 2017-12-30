@@ -17,7 +17,7 @@ class LINE extends LineAPI {
         this.checkReader = [];
         this.stateStatus = {
             cancel: 0,
-            kick: 0,
+            kick: 1,
         }
     }
 
@@ -122,7 +122,7 @@ class LINE extends LineAPI {
             this.stateStatus[action] = state;
             this._sendMessage(seq,`Status: \n${JSON.stringify(this.stateStatus)}`);
         } else {
-            this._sendMessage(seq,`You Are Not Admin`);
+            this._sendMessage(seq,`Kau bukan Admin pekok`);
         }
     }
 
@@ -203,14 +203,14 @@ class LINE extends LineAPI {
             }
         }
 
-        if(txt == 'halo' || txt == 'sya') {
-            this._sendMessage(seq, 'halo disini tasya :)');
+        if(txt == 'hai' || txt == 'sya') {
+            this._sendMessage(seq, 'Nazuwa Apa Hal... :)');
         }
 
         if(txt == 'speed') {
-            const curTime = (Date.now() / 1000);
-            await this._sendMessage(seq,'processing....');
-            const rtime = (Date.now() / 1000) - curTime;
+            const curTime = (Date.now() / 10000);
+            await this._sendMessage(seq,'Lagi Makan Ni Bos.');
+            const rtime = (Date.now() / 10000) - curTime;
             await this._sendMessage(seq, `${rtime} second`);
         }
 
